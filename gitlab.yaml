@@ -1,0 +1,43 @@
+webhooks:
+    gitlab:
+      pipeline:
+        name: "Gitlab pipeline events"
+        description: "Maps pipeline events including build and project properties."
+        author: "Sam Jones <sam@verticle.io>"
+        mappingVersion: "1.0"
+        sourceVersion: "v2"
+        mapping:
+          status:
+            success: $.object_attributes[?(@.status == "success")]
+            warn: $.object_attributes[?(@.status == "canceled")]
+            error: $.object_attributes[?(@.status == "failed")]
+          event:
+            - $.commit.message
+          ident:
+            - $.object_attributes.ref
+          severity:
+            s3: "3"
+          link: 
+            - $.commit.url
+          category:
+            - $.project.name
+          message:
+            - $.project.name
+            - $.object_attributes.stages
+            - $.object_attributes.status
+          messagePropertySections:
+            - name: "project"
+              selectors:
+                - $.project
+            - name: "user"
+              selectors:
+                - $.user
+            - name: "commit"
+              selectors:
+                - $.commit
+            - name: "object_attributes"
+              selectors:
+                - $.object_attributes
+            - name: "builds"
+              selectors:
+                - $.builds[*]
