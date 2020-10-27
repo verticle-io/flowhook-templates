@@ -1,5 +1,5 @@
 webhooks:
-    gitlab:
+  gitlab:
       pipeline:
         name: "Gitlab pipeline events"
         description: "Maps pipeline events including build and project properties."
