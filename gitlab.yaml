@@ -43,8 +43,8 @@ webhooks:
               - $.builds[*]
               
       issues:
-        name: "Gitlab issue events"
-        description: "Maps issue events including project and commit properties."
+        name: "Gitlab push events"
+        description: "Maps push events including project and commit properties."
         author: "Sam Jones <sam@verticle.io>"
         mappingVersion: "1.0"
         sourceVersion: "Gitlab.com current"
