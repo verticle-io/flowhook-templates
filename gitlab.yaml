@@ -42,33 +42,33 @@ webhooks:
             selectors:
               - $.builds[*]
               
-      issues:
-        name: "Gitlab push events"
-        description: "Maps push events including project and commit properties."
-        author: "Sam Jones <sam@verticle.io>"
-        mappingVersion: "1.0"
-        sourceVersion: "Gitlab.com current"
-        mapping:
-          status:
-            info: true
-          event:
-            - $.user_username
-            - pushed to
-            - $.project.name
-          ident:
-            - $.ref
-          severity:
-            s3: "3"
-          link: 
-            - $.commit.url
-          category:
-            - $.project.name
-          message:
-            - $.commits[*].message
-          messagePropertySections:
-            - name: "project"
-              selectors:
-                - $.project
-            - name: "commits"
-              selectors:
-                - $.commits[*]
+    issues:
+      name: "Gitlab push events"
+      description: "Maps push events including project and commit properties."
+      author: "Sam Jones <sam@verticle.io>"
+      mappingVersion: "1.0"
+      sourceVersion: "Gitlab.com current"
+      mapping:
+        status:
+          info: true
+        event:
+          - $.user_username
+          - pushed to
+          - $.project.name
+        ident:
+          - $.ref
+        severity:
+          s3: "3"
+        link: 
+          - $.commit.url
+        category:
+          - $.project.name
+        message:
+          - $.commits[*].message
+        messagePropertySections:
+          - name: "project"
+            selectors:
+              - $.project
+          - name: "commits"
+            selectors:
+              - $.commits[*]
