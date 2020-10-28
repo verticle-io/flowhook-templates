@@ -1,0 +1,32 @@
+webhooks:
+  github: 
+    push: 
+      name: "Github push"
+      description: "transforms Github push events."
+      author: "Sam Jones <sam@verticle.io>"
+      mappingVersion: "0.1"
+      sourceVersion: "current"
+      mapping:
+        status:
+          info: true
+        event:
+          - $.pusher.name
+          - <SPACE>
+          - pushed to
+          - <SPACE>
+          - $.repository.name
+        ident:
+          - $.ref
+        severity:
+          s3: true
+        link: 
+          - "https://verticle.io"
+        category:
+          - $.repository.name
+        message:        
+          - commit msgs:
+          - $.commits[*].message
+        messagePropertySections:
+          - name: "commits"
+            selectors:
+              - $.commits[*]
