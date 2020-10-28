@@ -1,0 +1,76 @@
+webhooks:
+  yousource: # the webhook source system or service
+    yourresource: # the webhook resource or payload it issues
+      name: "Lorem ipsum dolor"
+      description: "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet."
+      author: "Jon Snow <john@nightwatch.got>"
+      mappingVersion: "1.0"  # your own versioning
+      sourceVersion: "v2 and later" # the compatible version of the source system or service
+      mapping:
+        status:
+          success: $expression
+          warn: $expression
+          error: $expression
+          info: $expression
+        event:
+          - $expression
+        ident:
+          - $expression
+        severity:
+          s1: $expression or value
+          s2: $expression or value
+          s3: $expression or value
+          s4: $expression or value
+          s5: $expression or value
+          s6; $expression or value
+        link: 
+          - $expression or value
+        category:
+          - $expression or value
+        message:
+          - $expression or value
+        messagePropertySections:
+          - name: "section 1"
+            selectors:
+              - $expression for node selection
+          - name: "section 2"
+            selectors:
+              - $expression for node selection
+         
+              
+    yoursecondresource: # another payload mapping the source system/service issues
+      name: "Lorem ipsum dolor"
+      description: "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet."
+      author: "Jon Snow <john@nightwatch.got>"
+      mappingVersion: "1.0"  # your own versioning
+      sourceVersion: "v1 beta" # the compatible version of the source system or service
+      mapping:
+        status:
+          success: $expression
+          warn: $expression
+          error: $expression
+          info: $expression
+        event:
+          - $expression
+        ident:
+          - $expression
+        severity:
+          s1: $expression or value
+          s2: $expression or value
+          s3: $expression or value
+          s4: $expression or value
+          s5: $expression or value
+          s6; $expression or value
+        link: 
+          - $expression or value
+        category:
+          - $expression or value
+        message:
+          - $expression or value
+        messagePropertySections:
+          - name: "section 1"
+            selectors:
+              - $expression for node selection
+          - name: "section 2"
+            selectors:
+              - $expression for node selection
