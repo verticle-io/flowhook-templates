@@ -24,7 +24,7 @@ webhooks:
         category:
           - $.repository.name
         message:        
-          - commit msgs:
+          - commit msgs
           - $.commits[*].message
         messagePropertySections:
           - name: "commits"
