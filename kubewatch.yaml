@@ -1,0 +1,26 @@
+webhooks:
+  kubewatch: 
+    event: 
+      name: "kubewatch webhooks"
+      description: "Transforms kubewatch event webhooks (resourcesToWatch), see https://github.com/bitnami-labs/kubewatch for details."
+      author: "Sam Jones <sam@verticle.io>"
+      mappingVersion: "0.1"
+      sourceVersion: "v0.1.0 and later"
+      mapping:
+        status:
+          success: $.eventmeta[?(@.reason == "updated")]
+        event:
+          - $.eventmeta.kind
+          - <SPACE>
+          - $.eventmeta.reason
+        ident:
+          - $.eventmeta.name
+        severity:
+          s3: true
+        link: 
+          - "https://verticle.io"
+        category:
+          - $.eventmeta.kind
+        message:
+          - $.text
+         
